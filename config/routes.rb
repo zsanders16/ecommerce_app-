@@ -1,20 +1,15 @@
 Rails.application.routes.draw do
   
-  get 'shopping_carts/index'
-
-  get 'items/index'
-
-  get 'items/show'
-
-  get 'items/new'
-
-  get 'items/edit'
-
-  get 'categories/index'
-
-  get 'categories/new'
-
-  get 'categories/edit'
+  resources :categories do
+    resources :items
+  end
+  
+  resources :shopping_carts do
+    patch :change_item_amount
+    patch :remove_item
+    resources :items
+  end
+  
 
   devise_for :users
 
