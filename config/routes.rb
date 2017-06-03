@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   
   resources :shopping_carts do
+    patch :add_item
     patch :change_item_amount
     patch :remove_item
     resources :items
