@@ -7,8 +7,10 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @shopping_cart = current_user.current_shopping_cart
     @category = Category.find(params[:category_id])
     @item = @category.items.find(params[:id])
+
   end
 
   def new
@@ -41,14 +43,16 @@ class ItemsController < ApplicationController
   end
 
   #custom routes
-  def change_item_amount
-  end
   
-  def remove_item
-  end
   
   def add_item
-    binding.pry
+
+    @item = Item.find(params[:item_id])
+    #@shopping_cart = ShoppingCart.find(params[:shopping_cart_id])
+    @item.shopping_carts_id = params[:shopping_cart_id]
+
+    redirect_to shopping_cart_paths(:shopping_cart_id)
+    
   end
 
   private

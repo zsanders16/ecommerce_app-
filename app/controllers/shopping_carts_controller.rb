@@ -5,7 +5,7 @@ class ShoppingCartsController < ApplicationController
   end
 
   def show
-    @shopping_cart = Shopping_Cart.find_by(user_id: current_user.id)
+    @shopping_cart = current_user.current_shopping_cart
     @category = Category.find(params[:id])
     @items = @category.items
   end
