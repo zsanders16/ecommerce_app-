@@ -40,6 +40,17 @@ class ItemsController < ApplicationController
     redirect_to items_path, notice: 'Item Successfully Deleted.'
   end
 
+  #custom routes
+  def change_item_amount
+  end
+  
+  def remove_item
+  end
+  
+  def add_item
+    binding.pry
+  end
+
   private
 
   def item_params

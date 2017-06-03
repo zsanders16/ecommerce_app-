@@ -11,4 +11,4 @@
 </div>
 
 
-<%= link_to  "Add Item to Shopping Cart", shopping_cart_add_item_path(1, @item), class: 'btn btn-primary' %>
+<%= link_to  "Add Item to Shopping Cart", shopping_cart_item_add_item_path(@shopping_cart, @item), class: 'btn btn-primary' %>

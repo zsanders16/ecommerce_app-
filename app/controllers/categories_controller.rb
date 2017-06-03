@@ -1,13 +1,12 @@
+
 class CategoriesController < ApplicationController
   before_action :set_categories, except: [:index, :new, :create]
 #it will run before_action (set_categories) method for the show and edit.
   def index
     # Scope the categories down to the user that is logged in
-    @categories = current_user.categories
+    @categories = Category.all
   end
 
-  def show
-  end
 
   def new
     @category = current_user.categories.new
@@ -55,6 +54,6 @@ class CategoriesController < ApplicationController
 
     # Before Action
     def set_category
-      @category = current_user.categories.find(params[:id])
+      @category = Category.find(params[:id])
     end
 end
