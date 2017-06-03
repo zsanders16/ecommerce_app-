@@ -1,11 +1,14 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
+  #before_action :set_item, except: [:index, :new, :create]
 
   def index
-    @items = category.items
+    @category = Category.find(params[:category_id])
+    @items = @category.items
   end
 
   def show
+    @category = Category.find(params[:category_id])
+    @item = @category.items.find(params[:id])
   end
 
   def new

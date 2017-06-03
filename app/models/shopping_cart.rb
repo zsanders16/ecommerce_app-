@@ -1,4 +1,4 @@
 class ShoppingCart < ApplicationRecord
   belongs_to :user, dependent: :destroy
-  has_many :item, optional: true
+  has_many :items
 end

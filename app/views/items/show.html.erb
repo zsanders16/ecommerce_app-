@@ -1,12 +1,14 @@
-<h1> <%= category_item.name %> </h1>
-<hr />
+
 
 <div>
-  <%= category_item.name %>
+  <%= @item.name %>
 </div>
 <div>
-  <%= category_item.price %>
+  <%= @item.price %>
 </div>
 <div>
-  <%= category_item.description %>
+  <%= @item.description %>
 </div>
+
+
+<%= link_to  "Add Item to Shopping Cart", shopping_cart_add_item_path(1, @item), class: 'btn btn-primary' %>

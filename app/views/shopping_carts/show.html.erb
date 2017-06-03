@@ -1,0 +1,15 @@
+<h1>ShoppingCart for <%=  %></h1>
+
+<table class="table table.hover">
+    <tr>
+        <th> Item Name </th>
+        <th> Item Cost </th>
+    </tr>
+    <% @items.each do |item| %>
+    <tr>  
+        <td> <%= item.name %> </td>
+        <td> <%= item.price %> </td>
+        <td></td>
+    </tr>
+    <% end %>
+</table>
