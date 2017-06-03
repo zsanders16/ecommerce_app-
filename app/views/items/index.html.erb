@@ -1,2 +1,24 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<h1> Item List </h1>
+
+<% if @items.any? %>
+
+  <ul class='list-group'>
+    <% @items.each do |item| %>
+      <li class='list-group-item'>
+        <%= item.info %>
+        <%= link_to 'Show', category_item_path(item), class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_category_item_path(item), class: 'btn btn-warning' %>
+        <%= link_to 'Delete',
+                    category_item_path(item),
+                    class: 'btn btn-danger',
+                    data: { confirm: 'Really Delete?'},
+                    method: :delete %>
+      </li>
+    <% end %>
+  </ul>
+
+<% else %>
+  <h3>No Items Found, Please Create One!</h3>
+<% end %>
+
+<%= link_to 'Go To Cart', shopping_cart_items_path, class: 'btn btn-primary' %>
