@@ -14,11 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-<<<<<<< HEAD
     @category = Category.find(params[:category_id])
-=======
-    @category = Category.new(params[:category_id])
->>>>>>> 55aef96a15f88456d8df57d4fc2d8c041b4839d5
     @item = @category.items.new
   end
 
@@ -54,17 +50,12 @@ class ItemsController < ApplicationController
    
     @item = Item.find(params[:item_id])
     @item.shopping_carts_id = params[:shopping_cart_id]
-<<<<<<< HEAD
 
-    redirect_to shopping_cart_paths(:shopping_cart_id)
-
-=======
     @item.save
     binding.pry
     
     redirect_to shopping_cart_path(:shopping_cart_id)
     
->>>>>>> 55aef96a15f88456d8df57d4fc2d8c041b4839d5
   end
 
   private
