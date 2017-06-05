@@ -1,5 +1,4 @@
 <h1>Categories</h1>
-
 <% if @categories.empty? %>
     <% if current_user.admin = true %>
     <h3>Please create category.</h3>
@@ -7,12 +6,8 @@
     <h3>There are no categories.</h3>
     <% end %>
 <% else %>
-
-
-
     <div class="container">
         <% @categories.each do |category| %>
-
             <div class="col-md-3 categoryStyle row">
                 <h2 class='text-center categoryName'><%= category.name %></h2>
                 <div class='text-center selectButton'>
@@ -24,19 +19,13 @@
                     <%= link_to 'Edit Category', edit_category_path(category), class: 'btn btn-primary' %>
                     <%= link_to 'Delete Category', category_path(category), method: :delete, class: 'btn btn-primary'%>
                   </div>
-
                 <% end %>
             </div>
-
-
-
         <% end %>
     </div>
 <% end %>
-
 <div>
     <% if current_user.admin == true %>
             <%= link_to 'Create New Category', new_category_path, class: 'btn btn-primary' %>
-
     <% end %>
 </div>
