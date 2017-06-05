@@ -13,10 +13,10 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = current_user.categories.new(category_params)
+    @category = Category.new(category_params)
     if @category.save
       # flash[:notice] = 'Category Created!'
-      redirect_to @category, notice: 'Category Created!'
+      redirect_to categories_path, notice: 'Category Created!'
     else
       render :new
     end
@@ -56,4 +56,6 @@ class CategoriesController < ApplicationController
     def set_category
       @category = Category.find(params[:id])
     end
+
+
 end
