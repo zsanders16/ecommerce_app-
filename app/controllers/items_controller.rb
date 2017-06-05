@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
 
   def index
     @category = Category.find(params[:category_id])
-    @items = @category.items
+    @items = @category.items.where(shopping_cart_id: nil)
+    
   end
 
   def show
@@ -54,21 +55,24 @@ class ItemsController < ApplicationController
 
 
   def add_item
-
+    
     @item = Item.find(params[:item_id])
+    @category = Category.find(@item.category_id)
     @shopping_cart = ShoppingCart.find(params[:shopping_cart_id])
-    @shopping_cart.items << @item
-
+    @new_item = @category.items.create(name: @item.name, price: @item.price, description: @item.description)
+    @shopping_cart.items << @new_item
+  
+    
     redirect_to shopping_cart_path(@shopping_cart)
 
   end
 
   def remove_item
+    
     @shopping_cart = ShoppingCart.find(params[:shopping_cart_id])
     @item = @shopping_cart.items.find(params[:item_id])
     
-    
-    binding.pry
+    @item.delete
 
     redirect_to shopping_cart_path(@shopping_cart)
 
