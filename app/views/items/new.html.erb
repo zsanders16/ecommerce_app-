@@ -1,4 +1,7 @@
 <h1>Create A New Item!</h1>
 <hr />
 
-<%= render(partial: 'form_item') %>
+<%= form_for @item do |f| %>
+  <%= f.label :name %>
+
+<% end %>

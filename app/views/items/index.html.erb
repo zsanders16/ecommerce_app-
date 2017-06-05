@@ -7,7 +7,7 @@
               <th> Item Cost </th>
           </tr>
           <% @items.each do |item| %>
-          <tr>  
+          <tr>
               <td> <%= item.name %> </td>
               <td> <%= item.price %> </td>
               <td><%= link_to 'Show', category_item_path(@category, item), class: 'btn btn-primary' %></td>
@@ -20,15 +20,14 @@
           </tr>
           <% end %>
       </table>
-      
-      
-      
+
 
 <% else %>
   <h3>No Items Found, Please Create One!</h3>
 <% end %>
 
-<%##<%= link_to 'Go To Cart', shopping_cart_items_path, class: 'btn btn-primary' %>
+<%= link_to 'Create New Item', new_category_item_path(@category), class: 'btn btn-primary' %>
+
 
 
 

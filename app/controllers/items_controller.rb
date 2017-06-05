@@ -14,7 +14,8 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = category.items.new
+    @category = Category.find(params[:category_id])
+    @item = @category.items.new
   end
 
   def create
@@ -43,8 +44,8 @@ class ItemsController < ApplicationController
   end
 
   #custom routes
-  
-  
+
+
   def add_item
 
     @item = Item.find(params[:item_id])
@@ -52,7 +53,7 @@ class ItemsController < ApplicationController
     @item.shopping_carts_id = params[:shopping_cart_id]
 
     redirect_to shopping_cart_paths(:shopping_cart_id)
-    
+
   end
 
   private
