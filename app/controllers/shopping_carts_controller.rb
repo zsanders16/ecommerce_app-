@@ -5,8 +5,9 @@ class ShoppingCartsController < ApplicationController
   end
 
   def show
-    @shopping_cart = current_user.current_shopping_cart
-    @items = Item.where(shopping_carts_id: @shopping_cart.id )
+    @shopping_cart = ShoppingCart.find(params[:id])
+    @items = @shopping_cart.items
+    binding.pry
   end
   
 
