@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
 
   def edit
     @category = Category.find(params[:category_id])
-    @item = @category.items.find(params[:id])
+    @item = @category.items.find(params[:id]) 
   end
 
   def update
@@ -73,7 +73,7 @@ class ItemsController < ApplicationController
     redirect_to shopping_cart_path(@shopping_cart)
 
   end
-  
+
 
   private
 
