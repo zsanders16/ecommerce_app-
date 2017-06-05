@@ -17,6 +17,10 @@
 </div>
 <hr class='itemShowHR'>
 
+<div class='col-md-6'>
 <%= link_to 'Go Back', category_items_path, class: 'btn btn-primary' %>
+</div>
 
+<div class='col-md-6'>
 <%= link_to  "Add Item to Shopping Cart", shopping_cart_item_add_item_path(@shopping_cart, @item, @category), class: 'btn btn-primary', method: :patch %>
+</div>
