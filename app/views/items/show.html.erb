@@ -1,14 +1,19 @@
-
-
-<div>
-  <%= @item.name %>
+<div class='col-md-6'>
+  <div class='col-md-6'>
+    <%= @item.name %>
+  </div>
+  <br />
+  <div>
+    Price: <%= @item.price %>
+  </div>
 </div>
-<div>
-  <%= @item.price %>
+  <br />
+  <div class='col-md-6'>
+    <div>
+    Description: <%= @item.description %>
+  </div>
 </div>
-<div>
-  <%= @item.description %>
-</div>
+  <br />
 
 
 <%= link_to  "Add Item to Shopping Cart", shopping_cart_item_add_item_path(@shopping_cart, @item, @category), class: 'btn btn-primary', method: :patch %>
