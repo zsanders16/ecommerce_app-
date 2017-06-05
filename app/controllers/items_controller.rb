@@ -14,7 +14,8 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = category.items.new
+    @category = Category.new(params[:category_id])
+    @item = @category.items.new
   end
 
   def create
