@@ -1,19 +1,22 @@
-<div class='col-md-6'>
-  <div class='col-md-6'>
-    Item: <%= @item.name %>
-  </div>
-  <br />
-  <div>
-    Price: <%= @item.price %>
-  </div>
-  <br />
-</div>
-  <br />
+<h1> <%= @item.name%> </h1>
+<hr class="itemShowHR">
+
+<div class='itemBackground'>
   <div class='col-md-6'>
     <div>
-    Description: <%= @item.description %>
+      Price: <%= @item.price %>
+    </div>
+      <br />
   </div>
+  <div class='col-md-6'>
+    <div>
+      Description: <%= @item.description %>
+    </div>
+  </div>
+  <br />
 </div>
+<hr class='itemShowHR'>
 
+<%= link_to 'Go Back', category_items_path, class: 'btn btn-primary' %>
 
 <%= link_to  "Add Item to Shopping Cart", shopping_cart_item_add_item_path(@shopping_cart, @item, @category), class: 'btn btn-primary', method: :patch %>
