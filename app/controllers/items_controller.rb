@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
 
     @item = Item.find(params[:item_id])
     @shopping_cart = ShoppingCart.find(params[:shopping_cart_id])
-    @shopping_cart.items.create(name: @item.name, price: @item.price, description: @item.description, category_id: @item.category_id)
+    @shopping_cart.items << @item
 
     redirect_to shopping_cart_path(@shopping_cart)
 
