@@ -13,14 +13,15 @@
     <div class="container">
         <% @categories.each do |category| %>
         
-        <div class="row">
-            <div class="col-md-4">
-                <h2><%= category.name %></h2>
-                <%= link_to 'Select Category', category_items_path(category), class: 'btn btn-primary' %>
-                <br>
+            <div class="col-md-3 categoryStyle row">
+                <h2 class='text-center categoryName'><%= category.name %></h2>
+                <div class='text-center selectButton'>
+                <%= link_to "Select #{category.name}" , category_items_path(category), class: 'btn btn-primary btnSelect' %>
+                </div>
+                <br />
                 <% if current_user.admin == true %>
-                    <%= link_to 'Edit Category', edit_category_path(category), class: 'btn btn-primary' %>
-                    <%= link_to 'Delete Category', category_path(category), method: :delete, class: 'btn btn-primary'%>  
+                    <%= link_to 'Edit Category', edit_category_path(category), class: 'btn btn-warning' %>
+                    <%= link_to 'Delete Category', category_path(category), method: :delete, class: 'btn btn-danger'%>  
                     
                 <% end %>
             </div>
@@ -28,11 +29,10 @@
         
         
         <% end %>
-        </div>
     </div>
 <% end %>
 
-<div class="container new-category">
+<div>
     <% if current_user.admin == true %>
             <%= link_to 'Create New Category', new_category_path, class: 'btn btn-primary' %> 
                         
