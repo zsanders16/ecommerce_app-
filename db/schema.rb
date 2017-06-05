@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 20170604220633) do
     t.float "price"
     t.text "description"
     t.bigint "category_id"
-    t.bigint "shopping_carts_id"
+    t.bigint "shopping_cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["shopping_carts_id"], name: "index_items_on_shopping_carts_id"
+    t.index ["shopping_cart_id"], name: "index_items_on_shopping_cart_id"
   end
 
   create_table "shopping_carts", force: :cascade do |t|
@@ -59,6 +59,6 @@ ActiveRecord::Schema.define(version: 20170604220633) do
   end
 
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "shopping_carts", column: "shopping_carts_id"
+  add_foreign_key "items", "shopping_carts"
   add_foreign_key "shopping_carts", "users"
 end
