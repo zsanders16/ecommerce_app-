@@ -11,12 +11,14 @@
               <td> <%= item.name %> </td>
               <td> $<%= item.price %> </td>
               <td><%= link_to 'View Item', category_item_path(@category, item), class: 'btn btn-primary' %></td>
+              <% if current_user.admin == true %>
               <td><%= link_to 'Edit Item', edit_category_item_path(@category, item), class: 'btn btn-warning' %></td>
               <td><%= link_to 'Delete Item',
                     category_item_path(@category, item),
                     class: 'btn btn-danger',
                     data: { confirm: 'Really Delete?'},
                     method: :delete %></td>
+              <% end %>
           </tr>
           <% end %>
       </table>
