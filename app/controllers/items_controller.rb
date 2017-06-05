@@ -65,7 +65,10 @@ class ItemsController < ApplicationController
 
   def remove_item
     @shopping_cart = ShoppingCart.find(params[:shopping_cart_id])
-    @shopping_cart.items.find(params[:item_id]).destroy
+    @item = @shopping_cart.items.find(params[:item_id])
+    
+    
+    binding.pry
 
     redirect_to shopping_cart_path(@shopping_cart)
 

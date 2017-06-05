@@ -9,6 +9,10 @@ class ShoppingCartsController < ApplicationController
     @items = @shopping_cart.items
 
   end
+
+  #custom methods
+
+  
   
 
   

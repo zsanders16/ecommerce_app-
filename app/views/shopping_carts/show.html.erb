@@ -9,6 +9,7 @@
     <tr>  
         <td> <%= item.name %> </td>
         <td> <%= item.price %> </td>
+        <td><%= link_to 'Remove', shopping_cart_item_remove_item_path(@shopping_cart, item.id), class: 'btn btn-primary', method: :patch%></td>
     </tr>
     <% end %>
 </table>
