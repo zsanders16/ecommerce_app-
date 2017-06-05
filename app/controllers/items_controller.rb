@@ -29,11 +29,15 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @category = Category.find(params[:category_id])
+    @item = @category.items.find(params[:id])
   end
 
   def update
+    @category = Category.find(params[:category_id])
+    @item = @category.items.find(params[:id])
     if @item.update(item_params)
-      redirect_to @item, notice: 'Item Successfully Edited!'
+      redirect_to category_item_path(@category, @item), notice: 'Item Successfully Edited!'
     else
       render :edit
     end
@@ -75,6 +79,6 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = category.items(params[:id])
+    @item = @category.items(params[:id])
   end
 end

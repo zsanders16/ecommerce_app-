@@ -1,4 +1,4 @@
-<h1> Item List </h1>
+<h1> <%= @category.name %> </h1>
 
 <% if @items.any? %>
       <table class="table table.hover">
@@ -9,10 +9,10 @@
           <% @items.each do |item| %>
           <tr>
               <td> <%= item.name %> </td>
-              <td> <%= item.price %> </td>
-              <td><%= link_to 'Show', category_item_path(@category, item), class: 'btn btn-primary' %></td>
-              <td><%= link_to 'Edit', edit_category_item_path(@category, item), class: 'btn btn-warning' %></td>
-              <td><%= link_to 'Delete',
+              <td> $<%= item.price %> </td>
+              <td><%= link_to 'View Item', category_item_path(@category, item), class: 'btn btn-primary' %></td>
+              <td><%= link_to 'Edit Item', edit_category_item_path(@category, item), class: 'btn btn-warning' %></td>
+              <td><%= link_to 'Delete Item',
                     category_item_path(@category, item),
                     class: 'btn btn-danger',
                     data: { confirm: 'Really Delete?'},
@@ -26,7 +26,11 @@
   <h3>No Items Found, Please Create One!</h3>
 <% end %>
 
-<%= link_to 'Create New Item', new_category_item_path(@category), class: 'btn btn-primary' %>
-
+<div class='col-md-6'>
+  <%= link_to 'Go Back To Categories', categories_path, class: 'btn btn-primary backButton' %>
+</div>
+<div class='col-md-6 text-right'>
+  <%= link_to 'Create New Item', new_category_item_path(@category), class: 'btn btn-primary backButton' %>
+</div>
 
 <hr />
