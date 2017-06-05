@@ -1,8 +1,14 @@
 <h1>Categories</h1>
 
 <% if @categories.empty? %>
-    <h3>Please create catagory.</h3>
+    <% if current_user.admin = true %>
+    <h3>Please create category.</h3>
+    <% else %>
+    <h3>There are no categories.</h3>
+    <% end %>
 <% else %>
+
+
 
     <div class="container">
         <% @categories.each do |category| %>
