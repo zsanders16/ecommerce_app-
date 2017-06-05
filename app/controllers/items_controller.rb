@@ -55,12 +55,7 @@ class ItemsController < ApplicationController
     binding.pry
 
     redirect_to shopping_cart_path(:shopping_cart_id)
-<<<<<<< HEAD
 
-=======
-
-
->>>>>>> some working items
   end
 
   private
