@@ -5,11 +5,8 @@ class ShoppingCartsController < ApplicationController
   end
 
   def show
-
     @shopping_cart = current_user.current_shopping_cart
-    @items = @shopping_cart.items
-
-
+    @items = Item.where(shopping_carts_id: @shopping_cart.id )
   end
   
 

@@ -46,10 +46,12 @@ class ItemsController < ApplicationController
   
   
   def add_item
-
+   
     @item = Item.find(params[:item_id])
     @item.shopping_carts_id = params[:shopping_cart_id]
-
+    @item.save
+    binding.pry
+    
     redirect_to shopping_cart_path(:shopping_cart_id)
     
   end
