@@ -9,7 +9,7 @@
     <tr>  
         <td> <%= item.name %> </td>
         <td> <%= item.price %> </td>
-        <td></td>
+        <td><%= link_to 'Remove Item', shopping_cart_item_remove_item_path(@shopping_cart(params[shopping_cart_id, item])) , class: 'btn btn-primary' %></td>
     </tr>
     <% end %>
 </table>
