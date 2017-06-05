@@ -19,9 +19,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = category.items(item_params)
+    @category = Category.find(params[:category_id])
+    @item = @category.items.new(item_params)
     if @item.save
-      redirect_to @item, notice: 'Item Created!'
+      redirect_to category_item_path(@category, @item), notice: 'Item Created!'
     else
       render :new
     end
@@ -39,8 +40,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to items_path, notice: 'Item Successfully Deleted.'
+    @category = Category.find(params[:category_id])
+    item = @category.items.find(params[:id])
+    item.destroy
+    redirect_to category_items_path, notice: 'Item Successfully Deleted.'
   end
 
   #custom routes
