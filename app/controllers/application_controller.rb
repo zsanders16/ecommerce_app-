@@ -12,8 +12,11 @@ class ApplicationController < ActionController::Base
   private 
 
     def set_user_shopping_cart
-      @shopping_cart = current_user.current_shopping_cart
-      @shopping_cart
+      if user_signed_in?
+        @shopping_cart = current_user.current_shopping_cart
+        @shopping_cart
+      end
+      
     end
     
 end
