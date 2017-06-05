@@ -5,9 +5,11 @@ class ShoppingCartsController < ApplicationController
   end
 
   def show
+
     @shopping_cart = current_user.current_shopping_cart
-    @category = Category.find(params[:id])
-    @items = @category.items
+    @items = @shopping_cart.items
+
+
   end
   
 

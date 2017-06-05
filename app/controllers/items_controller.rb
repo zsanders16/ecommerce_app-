@@ -48,10 +48,9 @@ class ItemsController < ApplicationController
   def add_item
 
     @item = Item.find(params[:item_id])
-    #@shopping_cart = ShoppingCart.find(params[:shopping_cart_id])
     @item.shopping_carts_id = params[:shopping_cart_id]
 
-    redirect_to shopping_cart_paths(:shopping_cart_id)
+    redirect_to shopping_cart_path(:shopping_cart_id)
     
   end
 
