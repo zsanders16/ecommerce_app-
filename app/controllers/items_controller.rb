@@ -63,7 +63,7 @@ class ItemsController < ApplicationController
     @shopping_cart.items << @new_item
   
     
-    redirect_to shopping_cart_path(@shopping_cart)
+    redirect_to shopping_cart_path(@shopping_cart), notice: 'Item Successfully Added to Your Shopping List'
 
   end
 
@@ -74,7 +74,7 @@ class ItemsController < ApplicationController
     
     @item.delete
 
-    redirect_to shopping_cart_path(@shopping_cart)
+    redirect_to shopping_cart_path(@shopping_cart), alert: "Item Successfully Removed from Your Shopping List"
 
   end
 

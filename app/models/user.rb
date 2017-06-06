@@ -6,12 +6,10 @@ class User < ApplicationRecord
 
   has_one :shopping_cart
 
+
   def current_shopping_cart
-    if ShoppingCart.find_by(user_id: self.id).nil?
-      ShoppingCart.create(user_id: self.id)
-    else
-      ShoppingCart.find_by(user_id: self.id)
-    end
+    self.shopping_cart ? self.shopping_cart : self.shopping_cart.create
   end
+  
   
 end
