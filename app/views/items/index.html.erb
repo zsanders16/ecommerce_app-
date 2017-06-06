@@ -8,7 +8,7 @@
           </tr>
           <% @items.each do |item| %>
           <tr>
-              <td> <%= item.name %> </td>
+              <td> <%= item.name %> <span class='inStock'>&emsp;- in stock!</span> </td>
               <td> $<%= item.price %> </td>
               <td><%= link_to 'View Item', category_item_path(@category, item), class: 'btn btn-primary' %></td>
               <% if current_user.admin == true %>
