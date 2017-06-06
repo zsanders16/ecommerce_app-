@@ -6,10 +6,11 @@ class User < ApplicationRecord
 
   has_one :shopping_cart
 
-
   def current_shopping_cart
-    self.shopping_cart ? self.shopping_cart : self.shopping_cart.create
+    self.shopping_cart || self.shopping_cart.create
   end
+  
+
   
   
 end
