@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'omniauth-facebook'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 
 # Use Capistrano for deployment
@@ -47,6 +49,9 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'dotenv-rails'
+  gem 'faker'
+  gem 'annotate'
+
 end
 
 group :development do
