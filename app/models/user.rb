@@ -28,9 +28,10 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_one :shopping_cart
+  after_create :current_shopping_cart
 
   def current_shopping_cart
-    self.shopping_cart || self.shopping_cart.create
+    self.shopping_cart || self.build_shopping_cart
   end
   
 
