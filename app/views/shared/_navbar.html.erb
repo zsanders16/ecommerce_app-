@@ -16,7 +16,9 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
         <li><%= link_to 'Categories', categories_path %></li>
-
+        <% if current_user.admin == true %>
+          <li><%= link_to 'Newsletter', new_newsletter_path %></li>
+        <% end %>
         <li><%= link_to  "My Shopping Cart", shopping_cart_path(@shopping_cart.id) %></li>
         <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
         <% end %>

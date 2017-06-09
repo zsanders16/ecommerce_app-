@@ -71,7 +71,7 @@ Rails.application.routes.draw do
       end
   end
 
-
+  resources :newsletter, only: [:new, :create]
 
 
 
