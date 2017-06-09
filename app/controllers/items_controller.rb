@@ -3,8 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @category = Category.find(params[:category_id])
-    @items = @category.items.where(shopping_cart_id: nil)
-    
+    @items = @category.items    
   end
 
   def show
@@ -49,33 +48,6 @@ class ItemsController < ApplicationController
     item = @category.items.find(params[:id])
     item.destroy
     redirect_to category_items_path, notice: 'Item Successfully Deleted.'
-  end
-
-  #custom routes
-
-
-  def add_item
-    
-    @item = Item.find(params[:item_id])
-    @category = Category.find(@item.category_id)
-    @shopping_cart = ShoppingCart.find(params[:shopping_cart_id])
-    @new_item = @category.items.create(name: @item.name, price: @item.price, description: @item.description)
-    @shopping_cart.items << @new_item
-  
-    
-    redirect_to shopping_cart_path(@shopping_cart), notice: 'Item Successfully Added to Your Shopping List'
-
-  end
-
-  def remove_item
-    
-    @shopping_cart = ShoppingCart.find(params[:shopping_cart_id])
-    @item = @shopping_cart.items.find(params[:item_id])
-    
-    @item.delete
-
-    redirect_to shopping_cart_path(@shopping_cart), alert: "Item Successfully Removed from Your Shopping List"
-
   end
 
 

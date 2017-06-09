@@ -57,6 +57,7 @@
 
 Rails.application.routes.draw do
   
+  resources :line_items, only: [:create, :destroy]
   devise_for :users, controllers: {
     omniauth_callbacks: 'omniauth_callbacks'
   }
@@ -67,8 +68,6 @@ Rails.application.routes.draw do
 
   resources :shopping_carts do
     resources :items do
-      patch :add_item
-      patch :remove_item
       end
   end
 

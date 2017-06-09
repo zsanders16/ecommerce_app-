@@ -5,11 +5,11 @@
         <th> Item Name </th>
         <th> Item Cost </th>
     </tr>
-    <% @items.each do |item| %>
+    <% @line_items.each do |line_item| %>
     <tr>  
-        <td> <%= item.name %> </td>
-        <td> <%= number_to_currency(item.price) %> </td>
-        <td><%= link_to 'Remove', shopping_cart_item_remove_item_path(@shopping_cart, item.id), class: 'btn btn-primary', method: :patch%></td>
+        <td> <%= line_item.item.name %> </td>
+        <td> <%= number_to_currency(line_item.item.price) %> </td>
+        <td><%= link_to 'Remove', line_item_path(line_item.id), class: 'btn btn-primary', method: :delete %></td>
     </tr>
     <% end %>
 </table>

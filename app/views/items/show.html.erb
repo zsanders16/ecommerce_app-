@@ -23,7 +23,7 @@
 <hr class='itemShowHR bigHR'>
 
 <div class='text-center'>
-<%= link_to  "Add Item to Shopping Cart", shopping_cart_item_add_item_path(@shopping_cart, @item, @category), class: 'btn btn-primary backButton', method: :patch %>
+<%= link_to  "Add Item to Shopping Cart", line_items_path(item_id: @item.id), class: 'btn btn-primary backButton', method: :post %>
 </div>
 <br />
 

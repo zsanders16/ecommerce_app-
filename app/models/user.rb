@@ -27,12 +27,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  has_one :shopping_cart
+  has_one :shopping_cart, dependent: :destroy
   after_create :current_shopping_cart
 
   def current_shopping_cart
-    self.shopping_cart || (self.build_shopping_cart).save
-
+    if self.shopping_cart 
+      self.shopping_cart
+    else
+      SignupMailer.new_signup(self).deliver
+      (self.build_shopping_cart).save
+    end
   end
   
 

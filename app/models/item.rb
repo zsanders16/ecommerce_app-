@@ -14,5 +14,16 @@
 
 class Item < ApplicationRecord
   belongs_to :category
-  belongs_to :shopping_cart, optional: true
+  has_many :line_items 
+  before_destroy
+
+
+  private
+
+    def ensure_not_refernce_by_any_line_item
+      unless line_item.empty?
+          errors.add(:base, 'Line item present')
+          throw :abort
+      end
+    end
 end
