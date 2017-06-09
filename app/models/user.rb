@@ -31,7 +31,8 @@ class User < ApplicationRecord
   after_create :current_shopping_cart
 
   def current_shopping_cart
-    self.shopping_cart || self.build_shopping_cart
+    self.shopping_cart || (self.build_shopping_cart).save
+
   end
   
 
