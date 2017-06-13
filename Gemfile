@@ -37,7 +37,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'omniauth-facebook'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
-
+gem 'jquery-rails'
 
 
 # Use Capistrano for deployment
@@ -52,8 +52,13 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'faker'
   gem 'annotate'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'database_cleaner'
 
 end
+
+gem 'simplecov', :require => false, :group => :test
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20170609025349) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "name"
-    t.float "price"
+    t.string "name", null: false
+    t.float "price", null: false
     t.text "description"
     t.bigint "category_id"
     t.datetime "created_at", null: false

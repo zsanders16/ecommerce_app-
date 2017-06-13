@@ -15,15 +15,17 @@
 class Item < ApplicationRecord
   belongs_to :category
   has_many :line_items 
-  before_destroy
+  
+  validates_presence_of :name, :price
+  
 
+  def self.return_ordered_items_by_name
+    order(:name)
+  end
 
-  private
-
-    def ensure_not_refernce_by_any_line_item
-      unless line_item.empty?
-          errors.add(:base, 'Line item present')
-          throw :abort
-      end
-    end
+  def self.return_ordered_items_by_price(lowest = true)
+    lowest ? order(:price) : order(price: :desc)
+  end
+  
+  
 end
